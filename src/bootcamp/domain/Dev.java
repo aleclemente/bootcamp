@@ -16,7 +16,7 @@ public class Dev {
         bootcamp.getEnrolledDevs().add(this);
     }
 
-    public void progress(){
+    public void setProgress(){
         Optional<Content> content = this.enrolledContents.stream().findFirst();
         if(content.isPresent()) {
             this.completedContents.add(content.get());
@@ -27,8 +27,8 @@ public class Dev {
         }
     }
 
-    public void calculateXp(){
-        this.completedContents
+    public double calculateXp(){
+        return this.completedContents
                 .stream()
                 .mapToDouble(Content::calculateXp)
                 .sum();
